@@ -6,7 +6,7 @@ function Dashboard() {
   return (
     <div>
       <Nav />
-      <h2>Dashboard has loaded</h2>
+      <Card />
     </div>
   );
 }

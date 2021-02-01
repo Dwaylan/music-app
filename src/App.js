@@ -9,7 +9,7 @@ function App() {
   const Login = (details) => {
     console.log(details);
 
-    if (details.Password == user.Password && details.name == user.name)
+    if (details.Password === user.Password && details.name === user.name)
       console.log("logged in");
     else {
       console.log("credential errors");
