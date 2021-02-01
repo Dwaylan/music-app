@@ -21,6 +21,8 @@ export default function ContainedButtons() {
         onClick={() => {
           console.log("Login was clicked");
         }}
+        type="submit"
+        value="LOGIN"
       >
         Login
       </Button>
