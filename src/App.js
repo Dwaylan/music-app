@@ -4,7 +4,6 @@ import Dashboard from "./components/Dashboard";
 
 function App() {
   const [user, setUser] = useState({ name: "", Password: "" });
-  const [error, setError] = useState("");
 
   const Login = (details) => {
     console.log(details);
@@ -36,7 +35,7 @@ function App() {
           <button onClick={Logout}>logout</button>
         </div>
       ) : (
-        <Form Login={Login} error={error} />
+        <Form Login={Login} />
       )}
     </div>
   );
