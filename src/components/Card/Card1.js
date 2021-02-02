@@ -78,21 +78,22 @@ function Cards(props) {
         <Card>
           <CardContent>
             <div className={classes.root}>
-              <h3>Sound quality</h3>
+              <h3>Sound Quality</h3>
               <p>
-                Manually controll the music quality in event of poor connection
+                Manually controll the music quality in the event of a poor
+                connection
               </p>
               <CardActions>
-                <FormControl>
+                <FormControl className={classes.formControl}>
                   <InputLabel id="demo-simple-select-label">Quality</InputLabel>
-                  <Select>
-                    labelId="demo-simple-select-label" id= "demo-simple-select"
-                    {/* value={Quality} */}
-                    {/* {onChange={handleQualityChange}} */}
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                  >
+                    <MenuItem>Low</MenuItem>
+                    <MenuItem>Normal</MenuItem>
+                    <MenuItem>High</MenuItem>
                   </Select>
-                  <MenuItem value={1}>Low</MenuItem>
-                  <MenuItem value={2}>Normal</MenuItem>
-                  <MenuItem value={3}>High</MenuItem>
                 </FormControl>
               </CardActions>
             </div>
