@@ -1,19 +1,14 @@
-import React, { useState } from "react";
-import Switch from "@material-ui/core/Switch";
+import React from "react";
+import Card1 from "./Card1";
+import Card2 from "./Card2";
+import Card3 from "./Card3";
 
-export default function SwitchLabels() {
-  const [state, setState] = useState({
-    Online: true,
-    Offline: false,
-  });
-
-  const handleChange = (event, val) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-    console.log("switch was clicked");
-    console.log(val);
-  };
-
+export default function Card() {
   return (
-    <Switch checked={state.Online} onChange={handleChange} name="Online" />
+    <div>
+      <Card1 />
+      <Card2 />
+      <Card3 />
+    </div>
   );
 }
