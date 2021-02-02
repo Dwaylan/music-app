@@ -7,7 +7,7 @@ export default function Card() {
   return (
     <div>
       <Card1 />
-      <Card2 />
+      {/* <Card2 /> */}
       <Card3 />
     </div>
   );
