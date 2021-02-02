@@ -25,15 +25,24 @@ const useStyles = makeStyles({
 });
 function Cards(props) {
   const classes = useStyles();
-  const [state, setState] = useState({
-    Online: true,
-    Offline: false,
-  });
+  // card 3*  Base level is set at normal
+  const [zone, setZone] = useState(2);
+  // card 2* Volume on slider at base level is set to 45
+  const [level, setLevel] = useState(45);
 
-  const handleChange = (event, val) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-    console.log("switch was clicked");
-    console.log(val);
+  const handleChange = () => {
+    console.log("online switch was clicked");
+    return props.setIsOnline(!props.isOnline);
+  };
+
+  const handleVolumeLevel = (event, newValue) => {
+    console.log("volume level changed");
+    setLevel(newValue);
+  };
+
+  const handleZoneChange = (event) => {
+    console.log("quality zone changed");
+    setZone(event.target.value);
   };
 
   return (
@@ -45,9 +54,10 @@ function Cards(props) {
             <p>Is this application connected to the internet?</p>
             <CardActions>
               <Switch
-                checked={state.Online}
+                checked={props.isOnline}
                 onChange={handleChange}
-                name="Online"
+                name="checkedA"
+                inputProps={{ "aria-label": "secondary checkbox" }}
               />
             </CardActions>
           </div>
@@ -61,7 +71,8 @@ function Cards(props) {
               <p>Overrides all other sound settings in this application </p>
               <CardActions>
                 <Slider
-                  defaultValue={0.00000005}
+                  Value={level}
+                  onChange={handleVolumeLevel}
                   aria-labelledby="discrete-slider-small-steps"
                   step={5}
                   marks
@@ -89,10 +100,12 @@ function Cards(props) {
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
+                    value={zone}
+                    onChange={handleZoneChange}
                   >
-                    <MenuItem>Low</MenuItem>
-                    <MenuItem>Normal</MenuItem>
-                    <MenuItem>High</MenuItem>
+                    <MenuItem value={1}>Low</MenuItem>
+                    <MenuItem value={2}>Normal</MenuItem>
+                    <MenuItem value={3}>High</MenuItem>
                   </Select>
                 </FormControl>
               </CardActions>
