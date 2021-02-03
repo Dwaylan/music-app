@@ -74,7 +74,7 @@ function Cards(props) {
                   Value={level}
                   onChange={handleVolumeLevel}
                   aria-labelledby="discrete-slider-small-steps"
-                  step={5}
+                  step={10}
                   marks
                   min={0}
                   max={100}
