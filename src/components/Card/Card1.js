@@ -113,6 +113,24 @@ function Cards(props) {
           </CardContent>
         </Card>
       </Grid>
+      <h3>System Notifications</h3>
+      {level > 80 ? (
+        <p>
+          Warning: Listening to music at a high volume could cause long term
+          hearing loss
+        </p>
+      ) : (
+        <p>:</p>
+      )}
+
+      {zone === 1 ? (
+        <p>
+          Warning: Music quality is degraded. Increase quality if your
+          connection allows is
+        </p>
+      ) : (
+        <p>:</p>
+      )}
     </Grid>
   );
 }
