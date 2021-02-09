@@ -132,7 +132,7 @@ function Cards(props) {
           hearing loss
         </p>
       ) : (
-        <p>:</p>
+        <p></p>
       )}
 
       {zone === 1 ? (
@@ -141,7 +141,7 @@ function Cards(props) {
           connection allows it.
         </p>
       ) : (
-        <p>:</p>
+        <p></p>
       )}
     </Grid>
   );
