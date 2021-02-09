@@ -25,14 +25,16 @@ const useStyles = makeStyles({
 });
 function Cards(props) {
   const classes = useStyles();
+  // card 1* Base level is false/off
+  const [toggle, setToggle] = useState(false);
   // card 3*  Base level is set at normal
   const [zone, setZone] = useState(2);
   // card 2* Volume on slider at base level is set to 45
   const [level, setLevel] = useState(45);
 
-  const handleChange = () => {
-    console.log("online switch was clicked");
-    return props.setIsOnline(!props.isOnline);
+  const handleToggleChange = (event, value) => {
+    console.log("online switch was clicked", value);
+    setToggle(event.target.checked);
   };
 
   const handleVolumeLevel = (event, newValue) => {
@@ -54,9 +56,9 @@ function Cards(props) {
             <p>Is this application connected to the internet?</p>
             <CardActions>
               <Switch
-                checked={props.isOnline}
-                onChange={handleChange}
-                name="checkedA"
+                checked={toggle}
+                onChange={handleToggleChange}
+                name="toggle"
                 inputProps={{ "aria-label": "secondary checkbox" }}
               />
             </CardActions>
@@ -114,6 +116,16 @@ function Cards(props) {
         </Card>
       </Grid>
       <h3>System Notifications</h3>
+
+      {toggle === true ? (
+        <p>You are Online.</p>
+      ) : (
+        <p>
+          Your application is offline. You won't be able to share or stream
+          music to other devices.
+        </p>
+      )}
+
       {level > 80 ? (
         <p>
           Warning: Listening to music at a high volume could cause long term
@@ -126,7 +138,7 @@ function Cards(props) {
       {zone === 1 ? (
         <p>
           Warning: Music quality is degraded. Increase quality if your
-          connection allows is
+          connection allows it.
         </p>
       ) : (
         <p>:</p>
